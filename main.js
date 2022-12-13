@@ -1,25 +1,88 @@
-const url = "http://localhost:8080/api/v1/biosaida"
 
-function getUser() {
-    axios.get(url)
+// Requisicoes POST
+const biosaida = "http://localhost:8080/api/v1/biosaida";
+const bioEntrada = "http://localhost:8080/api/v1/bioEntrada";
+const individuo = "http://localhost:8080/api/v1/individuo";
+const sensorBiometrico = "http://localhost:8080/api/v1/sensorBiometrico";
+const comodo = "http://localhost:8080/api/v1/comodo";
+
+function getAllBioEntrada() {
+    axios.get(bioEntrada)
     .then(response => {
         console.log(response)
     })
     .catch(error => console.log(error));
 }
 
-//getUser()
+function getAllBioSaida() {
+    axios.get(biosaida)
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => console.log(error));
+}
 
-function postUser() {
-    axios.post(url, {id: 'a3e37de6-cd44-4712-b087-d76931563e73', 
-    individuoid: 'a3e37de6-cd44-4712-b087-d76931563e73', 
-    sensorBiometricoId: 'a3e37de6-cd44-4712-b087-d76931563e73',
-    dataHora: '2022-12-13T19:57:09.009'})
+function postBioSaida(saidaDTO) {
+    axios.post(biosaida, {
+        id: saidaDTO.id, 
+        individuoid: saidaDTO.individuoid, 
+        sensorBiometricoId: saidaDTO.sensorBiometricoId,
+        dataHora: saidaDTO.dataHora
+    })
     .then(response => {
         console.log(response)
     })
     .catch(error => console.log(error))
 }
 
-postUser()
 
+function postBioEntrada(entradaDTO) {
+    axios.post(bioEntrada, 
+        {id: entradaDTO.id, 
+        individuoid: entradaDTO.individuoid, 
+        sensorBiometricoId: entradaDTO.sensorBiometricoId,
+        dataHora: entradaDTO.dataHora
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => console.log(error))
+}
+
+function postIndividuo(individuoDTO) {
+    axios.post(individuo, 
+        {
+        id: individuoDTO.id, 
+        nome: individuoDTO.nome, 
+        cpf: individuoDTO.cpf,
+        biometria: individuoDTO.biometria
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => console.log(error))
+}
+
+function postSensorBiometrico(sensorDTO) {
+    axios.post(sensorBiometrico, 
+        {id: sensorDTO.id, 
+        codigo: sensorDTO.codigo, 
+        status: sensorDTO.status,
+        comodo_id: sensorDTO.comodo_id
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => console.log(error))
+}
+
+function postComodo(comodoDTO) {
+    axios.post(comodo, 
+        {id: comodoDTO.id, 
+        nome: comodoDTO.nome
+    })
+    .then(response => {
+        console.log(response)
+    })
+    .catch(error => console.log(error))
+}
