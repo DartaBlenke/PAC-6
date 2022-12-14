@@ -78,10 +78,10 @@ function postSensorBiometrico(sensorDTO) {
     .catch(error => console.log(error))
 }
 
-function getAllSensorBiometrico() {
+function getAllSensorBiometrico(callback) {
     axios.get(sensorBiometrico)
     .then(response => {
-        return response
+        callback(response.data)
     })
     .catch(error => console.log(error));
 }
