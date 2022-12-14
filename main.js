@@ -1,25 +1,25 @@
 
 // Requisicoes POST
 const biosaida = "http://localhost:8080/api/v1/biosaida";
-const bioEntrada = "http://localhost:8080/api/v1/bioEntrada";
+const bioEntrada = "http://localhost:8080/api/v1/bioentrada";
 const individuo = "http://localhost:8080/api/v1/individuo";
 const sensorBiometrico = "http://localhost:8080/api/v1/sensorBiometrico";
 const comodo = "http://localhost:8080/api/v1/comodo";
 
 
 
-function getAllBioEntrada() {
+function getAllBioEntrada(callback) {
     axios.get(bioEntrada)
     .then(response => {
-        console.log(response)
+        callback(response.data)
     })
     .catch(error => console.log(error));
 }
 
-function getAllBioSaida() {
+function getAllBioSaida(callback) {
     axios.get(biosaida)
     .then(response => {
-        console.log(response)
+        callback(response.data)
     })
     .catch(error => console.log(error));
 }
