@@ -78,6 +78,14 @@ function postSensorBiometrico(sensorDTO) {
     .catch(error => console.log(error))
 }
 
+function getAllSensorBiometrico() {
+    axios.get(sensorBiometrico)
+    .then(response => {
+        return response
+    })
+    .catch(error => console.log(error));
+}
+
 function postComodo(comodoDTO) {
     axios.post(comodo, 
         {id: comodoDTO.id, 
