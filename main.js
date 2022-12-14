@@ -6,6 +6,8 @@ const individuo = "http://localhost:8080/api/v1/individuo";
 const sensorBiometrico = "http://localhost:8080/api/v1/sensorBiometrico";
 const comodo = "http://localhost:8080/api/v1/comodo";
 
+
+
 function getAllBioEntrada() {
     axios.get(bioEntrada)
     .then(response => {
@@ -65,7 +67,7 @@ function postIndividuo(individuoDTO) {
 
 function postSensorBiometrico(sensorDTO) {
     axios.post(sensorBiometrico, 
-        {id: sensorDTO.id, 
+        {
         codigo: sensorDTO.codigo, 
         status: sensorDTO.status,
         comodo_id: sensorDTO.comodo_id
