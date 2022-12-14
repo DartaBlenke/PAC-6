@@ -27,6 +27,7 @@
       <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Novo Leitor
       </button>
+      <button type="submit" onclick="consultar()" class="btn btn-primary">Consultar</button>
     </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,8 +103,11 @@
       }
     );
 
-    var htmlList = '';
-    getAllSensorBiometrico(function (data) {
+   }
+
+   function consultar() {
+      var htmlList = '';
+     getAllSensorBiometrico(function (data) {
 
 
       data.forEach(function (element, index, array) {
@@ -133,9 +137,7 @@
       });
 
     })
-    
-
-   }
+    }
 
   </script>
 
